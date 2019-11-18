@@ -1,4 +1,4 @@
-package com.gmail.dmytrod8.entity;
+package com.gmail.dmytrod8.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

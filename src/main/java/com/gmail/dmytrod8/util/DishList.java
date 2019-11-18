@@ -1,4 +1,6 @@
-package com.gmail.dmytrod8.entity;
+package com.gmail.dmytrod8.util;
+
+import com.gmail.dmytrod8.entity.Dish;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.gmail.dmytrod8.controller;
 
 import com.gmail.dmytrod8.entity.Dish;
-import com.gmail.dmytrod8.entity.DishList;
-import com.gmail.dmytrod8.entity.ServerResponse;
+import com.gmail.dmytrod8.util.DishList;
+import com.gmail.dmytrod8.util.ServerResponse;
 import com.gmail.dmytrod8.service.DishService;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
