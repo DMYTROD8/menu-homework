@@ -1,0 +1,203 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Menu</title>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/css/open-iconic-bootstrap.css"/>
+</head>
+
+<body>
+<div class="container">
+    <h3><a href="/">Menu</a></h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#modalAddNewDish">
+                        Add
+                    </button>
+                </li>
+            </ul>
+            <div id="totalWeight" class="d-inline mx-2">
+                <small>
+                    <span>Total weight is:</span>
+                    <span>0</span>
+                    <span>g</span>
+                </small>
+            </div>
+            <div class="d-inline mx-2">
+                <button type="button" id="shopping-cart-button" class="btn btn-outline-primary btn-sm"
+                        data-toggle="modal"
+                        data-target="#modalShoppingCart">
+                    Shopping cart
+                </button>
+            </div>
+            <div class="d-inline">
+                <div class="dropdown mx-0">
+                    <button class="btn btn-outline-primary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="input-group input-group-sm col-md-12 my-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input id="discountCheckbox" type="checkbox"
+                                           aria-label="">
+                                </div>
+                            </div>
+                            <input type="text" class="form-control p-1" value="Only discount"
+                                   aria-label="Text input with checkbox" disabled>
+                        </div>
+                        <hr>
+                        <div class="input-group input-group-sm col-md-12 my-1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <label for="minPriceFilter"></label>
+                            <input type="text" class="form-control form-control-sm" id="minPriceFilter"
+                                   aria-describedby="dishDiscount" placeholder="min. price" autocomplete="off">
+                        </div>
+                        <div class="input-group input-group-sm col-md-12 my-1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <label for="maxPriceFilter"></label>
+                            <input type="text" class="form-control form-control-sm" id="maxPriceFilter"
+                                   aria-describedby="dishDiscount" placeholder="max. price" autocomplete="off">
+                        </div>
+                        <hr>
+                        <div class="input-group input-group-sm col-md-12 justify-content-center mt-3">
+                            <button id="priceFilterBtn" class="btn btn-outline-secondary btn-sm" type="button">Apply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal Add-->
+    <div class="modal fade" id="modalAddNewDish" tabindex="-1" role="dialog" aria-labelledby="modalAddNewDish"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLongTitle">Add new dish</h6>
+                    <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm">
+                        <label for="inputDishName"></label>
+                        <input type="text" class="form-control" id="inputDishName" aria-describedby="dishName"
+                               placeholder="For example, “Complex breakfast”" autocomplete="off">
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="input-group input-group-sm col-md-4">
+                            <label for="inputDishWeight"></label>
+                            <input type="text" class="form-control form-control-sm" id="inputDishWeight"
+                                   aria-describedby="dishWeight" placeholder="weight in g" autocomplete="off">
+                        </div>
+                        <div class="input-group input-group-sm col-md-4">
+                            <label for="inputDishPrice"></label>
+                            <input type="text" class="form-control form-control-sm" id="inputDishPrice"
+                                   aria-describedby="dishPrice" placeholder="price " autocomplete="off">
+                        </div>
+                        <div class="input-group input-group-sm col-md-4">
+                            <label for="inputDishDiscount"></label>
+                            <input type="text" class="form-control form-control-sm" id="inputDishDiscount"
+                                   aria-describedby="dishDiscount" placeholder="discount, %" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    <button type="button" id="saveDishButton" class="btn btn-primary btn-sm">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Shopping cart-->
+    <div class="modal fade bd-example-modal-lg" id="modalShoppingCart" tabindex="-1" role="dialog"
+         aria-labelledby="modalShoppingCart"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title"><b>Shopping cart</b></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <table id="shopping-cart-table" class="table table-striped">
+                            <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>Title</td>
+                                <td>Weight (g)</td>
+                                <td>Price</td>
+                                <td>Discount</td>
+                                <td>Total</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm disabled">disabled</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Shopping cart-->
+    <!-- Table-->
+    <table id="dish-table" class="table table-striped">
+        <thead>
+        <tr>
+            <td></td>
+            <td><b>Title</b></td>
+            <td><b>Weight (g)</b></td>
+            <td><b>Price</b></td>
+            <td><b>Discount</b></td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <!-- Table-->
+
+    <nav aria-label="Page navigation">
+        <ul id="dish-pages" class="pagination pagination-sm">
+        </ul>
+    </nav>
+
+    <!-- Flexbox container for aligning the toasts -->
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-end align-self-end"
+         style="min-height: 50px;">
+        <!-- Then put toasts within -->
+        <div class="toast" role="alert" data-delay="7000" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header text-white">
+                <strong class="mr-auto">Menu</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/js/main.js"></script>
+</body>
+</html>
