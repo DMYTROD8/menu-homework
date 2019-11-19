@@ -71,7 +71,7 @@ function drawPagesCounter(obj) {
             var placeToInsert = document.getElementById("dish-pages");
             placeToInsert.insertAdjacentHTML('beforeend', htmlInsert);
 
-            if (i === obj.currentPage) {
+            if (i == obj.currentPage) {
                 document.getElementsByClassName("page-item")[i].classList.add("active");
             }
         }
